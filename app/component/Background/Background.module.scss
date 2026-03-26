@@ -1,0 +1,32 @@
+.bg_container {
+   width: 100%;
+   height: 100dvh;
+   position: absolute;
+   z-index: 1;
+}
+
+.star_layer {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(180deg, #000, #1B2735);
+   overflow: hidden;
+}
+
+.star_layer .star {
+   position: absolute;
+   width: 4px;
+   height: 4px;
+   background: #fff;
+   border-radius: 50%;
+   animation: twinkle var(--twinkle-duration) ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+}

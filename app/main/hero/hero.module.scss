@@ -1,0 +1,85 @@
+@mixin flex-box($align: center, $justify: center, $direction: row,) {
+   display: flex;
+   align-items: $align;
+   justify-content: $justify;
+   flex-direction: $direction;
+}
+
+.hero {
+   @include flex-box();
+}
+
+.titleBox {
+   @include flex-box($direction: column,);
+   gap: 10px;
+   text-align: center;
+   color: #fff;
+   cursor: default;
+}
+
+.titleBox h1.title {
+   font-size: 1em;
+   font-weight: 900;
+   line-height: 1.2;
+}
+
+.titleBox h3.sub_title {
+   font-size: 0.6666em;
+   font-weight: 900;
+   line-height: 1;
+   color: transparent;
+   -webkit-text-stroke: 1px #fff;
+   letter-spacing: 3px;
+}
+
+
+.scroller {
+   font-size: 50px;
+   position: absolute;
+   z-index: 2;
+   bottom: 30px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 1em;
+   height: 1em;
+   border-radius: 50%;
+
+   .border {
+      font-size: inherit;
+      width: inherit;
+      height: inherit;
+      border: 2px solid #fff;
+      border-radius: inherit;
+      @include flex-box();
+      animation: scroller_rotate 3s infinite linear;
+
+      @mixin circle() {
+         width: 0.24em;
+         height: 0.24em;
+         background: #fff;
+         border-radius: inherit;
+      }
+
+      &::before {
+         content:'';
+         position: absolute;
+         @include circle();
+         top: 0.12em;
+         left: -0.08em;
+      }
+
+      .circle {
+         @include circle();
+      }
+   }
+}
+
+@keyframes scroller_rotate {
+   from {transform: translateX(-50%) rotate(0deg);}
+   to {transform: translateX(-50%) rotate(360deg);}
+}
+
+
+@media (max-width: 768px) {
+   .scroller {font-size: 35px;}
+}

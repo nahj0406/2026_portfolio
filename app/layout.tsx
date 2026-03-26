@@ -1,26 +1,31 @@
 import type { Metadata, Viewport } from "next";
 import { poppins, pretendard, paperlogy } from "./fonts";
-import "./css/globals.css";
+import "./globals.scss";
+import "./styles.scss";
 import Providers from "./provider";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
-  title: "푸푸토이 | 웰니스 무인 성인용품",
-  description: "남들 모르게, 매출이 남는 무인 성인 웰니스 매장",
+  title: "nahj 2026 portfolio",
+  description: "",
   openGraph: {
     url: "https://puffutoy.com",
     type: "website",
-    title: "푸푸토이 | 웰니스 무인 성인용품",
-    description: "남들 모르게, 매출이 남는 무인 성인 웰니스 매장",
-    images: "https://puffutoy.com/org-img.png",
+    title: "nahj 2026 portfolio",
+    description: "",
+    images: "",
   },
   twitter: {
     card: "summary",
-    title: "푸푸토이 | 웰니스 무인 성인용품",
-    description: "남들 모르게, 매출이 남는 무인 성인 웰니스 매장",
-    images: "https://puffutoy.com/org-img.png",
+    title: "nahj 2026 portfolio",
+    description: "",
+    images: "",
   },
   keywords:
-    "푸푸토이, 무인매장 창업, 성인용품 창업",
+    "",
   icons: "/favicon.ico",
   robots: { index: true, follow: true },
 };
@@ -40,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={cn("font-sans", geist.variable)}>
       <head>
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#000" />
