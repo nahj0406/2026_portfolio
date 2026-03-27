@@ -9,6 +9,8 @@ export interface ImageType {
 
 
 export interface StarProps extends ImageType {
+  className?: string;
+  lightColor: string;
   isActive?: boolean;
   onClick?: () => void;
 }
